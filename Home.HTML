@@ -4,18 +4,30 @@ function AddItem(){
 let Item= document.getElementById("item").value;
 let Item= document.getElementById("price").value;
 let Item= document.getElementById("qty").value;
+
+Let 
 }
 </script>
 <body>
 <h1>
    Biling App
 </h1>
-<
+
 <div>
 <input type="text" id="item" placeholder="Enter Item Name">
 <input type="Number" id="price" placeholder="Price(rs)">
 <input type="Number" id="qty" placeholder="Qty">
-<input type="button" value="Add Item" onclick="AddItem">
+<input type="button" value="Add Item" onclick="AddItem()">
 </div>
+<table id="tableinfo">
+   <thead>
+      <tr>
+         <th>Item</th>
+         <th>Price</th>
+         <th>Quantity</th>
+         <th>Item</th>
+      </tr>
+   </thead>
+</table>
 </body>
 </html>
