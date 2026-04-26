@@ -1,43 +1,60 @@
 <html>
-<head>
-<title>Billing App</title>
-</head>
-
 <script>
-
 function AddItem(){
+let item= document.getElementById("item").value;
+let price= document.getElementById("price").value;
+let qty= document.getElementById("qty").value;
 
-  let item = document.getElementById("item").value;
-  let price = document.getElementById("price").value;
-  let qty = document.getElementById("qty").value;
+let table = document.getElementById("tableinfo");
 
-  let table = document.getElementById("tableinfo").getElementsByTagName("tbody")[0];
+let row = table.insertRow();
 
-  let row = table.insertRow();
+let cell1 = row.insertCell(0);
+let cell2 = row.insertCell(1);
+let cell3 = row.insertCell(2);
+let cell4 = row.insertCell(3);
 
-  let cell1 = row.insertCell(0);
-  let cell2 = row.insertCell(1);
-  let cell3 = row.insertCell(2);
-  let cell4 = row.insertCell(3);
 
-  cell1.innerHTML = item;
-  cell2.innerHTML = price;
-  cell3.innerHTML = qty;
-  cell4.innerHTML = price * qty;
+cell1.innerHTML = item;
+cell2.innerHTML = price;
+cell3.innerHTML = qty; 
+cell4.innerHTML = price * qty;
+row.insertCell(4).innerHTML = "<input type='button' value='Edit Item' data-id='"+item+"' onclick='EditItem(this)'>";
+
+document.getElementById("item").value = "";
+document.getElementById("price").value = "";
+ document.getElementById("qty").value = "";
+
+
+
+
+
 }
+
+function EditItem(Btn){
+let row = Btn.closest("tr");
+let cells = row.querySelectorAll("td")
+document.getElementById("item").value = cells[0].innerText;
+document.getElementById("price").value = cells[1].innerText;
+document.getElementById("qty").value = cells[2].innerText;
+
+
+}
+
+
 </script>
-
 <body>
-
-<h1>Billing App</h1>
+<h1>
+   Biling App
+</h1>
 
 <div>
-  <input type="text" id="item" placeholder="Enter Item Name">
-  <input type="number" id="price" placeholder="Price(rs)">
-  <input type="number" id="qty" placeholder="Qty">
-  <input type="button" value="Add Item" onclick="AddItem()">
-</div>
+<input type="text" id="item" placeholder="Enter Item Name">
+<input type="Number" id="price" placeholder="Price(rs)">
+<input type="Number" id="qty" placeholder="Qty">
+<input type="button" value="Add Item" onclick="AddItem()">
 
+</div>
 <table id="tableinfo" border="1">
    <thead>
       <tr>
@@ -45,11 +62,9 @@ function AddItem(){
          <th>Price</th>
          <th>Quantity</th>
          <th>Total</th>
+         <th></th>
       </tr>
    </thead>
-   <tbody>
-   </tbody>
 </table>
-
 </body>
 </html>
