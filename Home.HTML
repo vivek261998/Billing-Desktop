@@ -14,11 +14,15 @@ let cell2 = row.insertCell(1);
 let cell3 = row.insertCell(2);
 let cell4 = row.insertCell(3);
 
-
+/* 18, 19,20,21 these line code is written to set or get the content inside the 3rd table cell*/
 cell1.innerHTML = item;
 cell2.innerHTML = price;
 cell3.innerHTML = qty; 
 cell4.innerHTML = price * qty;
+
+/*these line code is written to move entry detail into input value to edit it*/
+row.insertCell(4).innerHTML = "<input type='button' value='Edit Item' data-id='"+item+"' onclick='EditItem(this)'>";
+row.insertCell(4).innerHTML = "<input type='button' value='Edit Item' data-id='"+item+"' onclick='EditItem(this)'>";
 row.insertCell(4).innerHTML = "<input type='button' value='Edit Item' data-id='"+item+"' onclick='EditItem(this)'>";
 
 document.getElementById("item").value = "";
